@@ -42,9 +42,9 @@ Base Fare = (distance * rate_per_km) + (100 if distance < 50 else 250)
 
 | Class           | Concept           | Specific Logic                                                           |
 | --------------- | ----------------- | ------------------------------------------------------------------------ |
-| `Car(Vehicle)`  | Method Overriding | Adds a fixed ₹50 to the base fare.                                       |
+| `Car(Vehicle)`  | Method Overriding | Adds a fixed Rs.50 to the base fare.                                       |
 | `Bike(Vehicle)` | Method Overriding | Applies a **10% discount** to the base fare.                             |
-| `Bus(Vehicle)`  | Method Overriding | Applies a **₹200 discount** only if the distance is greater than 100 km. |
+| `Bus(Vehicle)`  | Method Overriding | Applies a **Rs.200 discount** only if the distance is greater than 100 km. |
 
 ---
 
