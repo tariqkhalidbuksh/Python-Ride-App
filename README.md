@@ -1,10 +1,18 @@
-Smart Ride Booking App: OOP Analysis
+🚗 Smart Ride Booking App: OOP Principles in Python
 
-This repository contains a simple Python console application designed to demonstrate the fundamental principles of Object-Oriented Programming (OOP), including Inheritance, Polymorphism, Encapsulation, and Composition.
+This repository contains a simple Python console application designed to demonstrate the fundamental principles of Object-Oriented Programming (OOP). It serves as a clear, concise example of how to implement:
+
+Inheritance
+
+Polymorphism
+
+Encapsulation
+
+Composition
 
 The application simulates a basic ride-booking service where fares are calculated based on vehicle type and modified by user-specific discounts.
 
-Core OOP Concepts Demonstrated
+✨ 🚀 Core OOP Concepts Demonstrated
 
 1. The Vehicle Hierarchy (Inheritance and Polymorphism)
 
@@ -30,131 +38,65 @@ Base Logic
 
 Defines the default fare formula. It applies a fixed surcharge: $100$ Rs for distances under $50$ km and $250$ Rs for $50$ km and over.
 
-$$\text{Base Fare} = (\text{Distance} \times \text{Rate per km}) + \begin{cases} 100 & \text{if distance} < 50 \\ 250 & \text{if distance} \ge 50 \end{cases}$$
+The base fare formula:
 
-Derived Classes (Car, Bike, Bus)
+$$\text{Base Fare} = (\text{Distance} \times \text{Rate per km}) + \begin{cases} 100 & \text{if distance} < 50 \\ 250 & \text{if distance} \ge 50 \end{cases}
+$$#### Derived Classes (Specialized Logic)
 
-Each child class overrides the base calculate_fare method:
+Each child class overrides the base `calculate_fare` method:
 
-Class
+| Class | Concept | Specific Logic (Overridden `calculate_fare`) |
+| :--- | :--- | :--- |
+| **`Car(Vehicle)`** | **Method Overriding** | Adds a fixed **$50$ Rs service charge** on top of the base fare. |
+| **`Bike(Vehicle)`** | **Method Overriding** | Applies a **$10\%$ discount** to the base fare. |
+| **`Bus(Vehicle)`** | **Method Overriding** | Applies a **$200$ Rs discount** only if the distance is greater than $100$ km. |
 
-Concept
+### 2\. The Booking System (Encapsulation and Composition)
 
-Specific Logic (Overridden calculate_fare)
-
-Car(Vehicle)
-
-Method Overriding
-
-Adds a fixed $50$ Rs service charge on top of the base fare.
-
-Bike(Vehicle)
-
-Method Overriding
-
-Applies a $10\%$ discount to the base fare.
-
-Bus(Vehicle)
-
-Method Overriding
-
-Applies a $200$ Rs discount only if the distance is greater than $100$ km.
-
-2. The Booking System (Encapsulation and Composition)
-
-User Class
+#### 🧑‍🎓 `User` Class
 
 Handles user identity and discount eligibility.
 
-Method/Attribute
+| Method/Attribute | Concept | Explanation |
+| :--- | :--- | :--- |
+| `get_discount(self)` | **Conditional Logic** | Returns a $20\%$ **($0.2$) discount rate** if the user is **under $18$ OR is a student**. Otherwise, returns $0.0$. |
 
-Concept
+#### 🗂️ `RideBooking` Class
 
-Explanation
+This class manages the booking process, showcasing **Composition** (it *has a* `User` object) and **Encapsulation**.
 
-get_discount(self)
+| Method/Attribute | Concept | Explanation |
+| :--- | :--- | :--- |
+| `__init__(self, user)` | **Composition** | Holds a reference to the **`User` object** to apply discounts. |
+| `__apply_discount(self, fare)` | **Encapsulation** | A **private method** (indicated by `__`) that handles the secure, internal logic of applying the user's discount. |
+| `add_ride(self, vehicle, distance)` | **Core Logic** | Orchestrates the entire calculation: calls the vehicle's fare logic and then applies the user's final discount. |
+| `show_summary(self)` | **Reporting** | Displays all booked rides and the total final payable amount. |
 
-Conditional Logic
+-----
 
-Returns a $20\%$ ($0.2$) discount rate if the user is under $18$ OR is a student. Otherwise, returns $0.0$.
+## 💡 Key Takeaways
 
-RideBooking Class
+| OOP Principle | Relationship | Example from Code |
+| :--- | :--- | :--- |
+| **Inheritance** | **Is-A** | A `Car` **is a** `Vehicle`. |
+| **Polymorphism** | **Customization** | All vehicles have `calculate_fare`, but they run different code. |
+| **Composition** | **Has-A** | `RideBooking` **has a** `User` object. |
+| **Encapsulation** | **Hiding Details** | The private `__apply_discount` method handles complex logic internally. |
 
-This class manages the booking process, showcasing Composition (it has a User object) and Encapsulation.
+-----
 
-Method/Attribute
+## 🏃 Getting Started
 
-Concept
+To run the application, ensure you have Python installed (version 3.x is recommended, as noted in the badge).
 
-Explanation
+1.  Save the original code as a file named `ride_booking_app.py`.
 
-__init__(self, user)
+2.  Open your terminal or command prompt.
 
-Composition
+3.  Run the script:
 
-Holds a reference to the User object to apply discounts.
-
-__apply_discount(self, fare)
-
-Encapsulation
-
-A private method (indicated by __) that handles the secure, internal logic of applying the user's discount.
-
-add_ride(self, vehicle, distance)
-
-Core Logic
-
-Orchestrates the entire calculation: calls the vehicle's fare logic and then applies the user's final discount.
-
-show_summary(self)
-
-Reporting
-
-Displays all booked rides and the total final payable amount.
-
-Key Takeaways
-
-OOP Principle
-
-Relationship
-
-Example from Code
-
-Inheritance
-
-Is-A
-
-A Car is a Vehicle.
-
-Polymorphism
-
-Customization
-
-All vehicles have calculate_fare, but they run different code.
-
-Composition
-
-Has-A
-
-RideBooking has a User object.
-
-Encapsulation
-
-Hiding Details
-
-The private __apply_discount method handles complex logic internally.
-
-How to Run the Application
-
-To run the application, ensure you have Python installed.
-
-Save the original code as a file named ride_booking_app.py.
-
-Open your terminal or command prompt.
-
-Run the script:
-
+```bash
 python ride_booking_app.py
+```
 
-
-Follow the interactive prompts to enter user details and book rides. The summary will update after each booking.
+4.  Follow the interactive prompts to enter user details and book rides. The summary will update after each booking.$$
